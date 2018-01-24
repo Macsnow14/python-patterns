@@ -1,14 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""http://www.dabeaz.com/coroutines/"""
+
+"""
+http://www.dabeaz.com/coroutines/
+"""
 
 from contextlib import contextmanager
 import os
 import sys
 import time
+import abc
 
 
 class Handler(object):
+    __metaclass__ = abc.ABCMeta
 
     def __init__(self, successor=None):
         self._successor = successor
@@ -18,6 +23,7 @@ class Handler(object):
         if not res:
             self._successor.handle(request)
 
+    @abc.abstractmethod
     def _handle(self, request):
         raise NotImplementedError('Must provide implementation in subclass.')
 
@@ -153,7 +159,7 @@ if __name__ == "__main__":
     with suppress_stdout():
         client1_delegate(requests)
         client2_delegate(requests)
-    # lets check what is faster
+    # lets check which is faster
     print(client1_delegate._time, client2_delegate._time)
 
 ### OUTPUT ###

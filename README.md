@@ -28,7 +28,7 @@ __Structural Patterns__:
 | [3-tier](structural/3-tier.py) | data<->business logic<->presentation separation (strict relationships) |
 | [adapter](structural/adapter.py) | adapt one interface to another using a white-list |
 | [bridge](structural/bridge.py) | a client-provider middleman to soften interface changes |
-| [composite](structural/composite.py) | encapsulate and provide access to a number of different objects |
+| [composite](structural/composite.py) | lets clients treat individual objects and compositions uniformly |
 | [decorator](structural/decorator.py) | wrap functionality with other functionality in order to affect outputs |
 | [facade](structural/facade.py) | use one class as an API to a number of others |
 | [flyweight](structural/flyweight.py) | transparently reuse existing instances of objects with similar/identical state |
@@ -55,6 +55,12 @@ __Behavioral Patterns__:
 | [strategy](behavioral/strategy.py) | selectable operations over the same data |
 | [template](behavioral/template.py) | an object imposes a structure but takes pluggable components |
 | [visitor](behavioral/visitor.py) | invoke a callback for all items of a collection |
+
+__Design for Testability Patterns__:
+
+| Pattern | Description |
+|:-------:| ----------- |
+| [setter_injection](dft/setter_injection.py) | the client provides the depended-on object to the SUT via the setter injection (implementation variant of dependency injection) |
 
 __Fundamental Patterns__:
 

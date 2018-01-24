@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""http://codesnipers.com/?q=python-flyweights"""
+"""
+*References:
+http://codesnipers.com/?q=python-flyweights
+
+*TL;DR80
+Minimizes memory usage by sharing data with other similar objects.
+"""
 
 import weakref
 
@@ -37,7 +43,7 @@ class FlyweightMeta(type):
         pool = getattr(cls, 'pool', {})
 
         instance = pool.get(key)
-        if not instance:
+        if instance is None:
             instance = super(FlyweightMeta, cls).__call__(*args, **kwargs)
             pool[key] = instance
         return instance
