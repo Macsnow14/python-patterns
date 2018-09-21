@@ -27,9 +27,12 @@ https://sourcemaking.com/design_patterns/decorator
 Adds behaviour to object without affecting its class.
 """
 
+from __future__ import print_function
+
 
 class TextTag(object):
     """Represents a base text tag"""
+
     def __init__(self, text):
         self._text = text
 
@@ -39,6 +42,7 @@ class TextTag(object):
 
 class BoldWrapper(TextTag):
     """Wraps a tag in <b>"""
+
     def __init__(self, wrapped):
         self._wrapped = wrapped
 
@@ -48,11 +52,13 @@ class BoldWrapper(TextTag):
 
 class ItalicWrapper(TextTag):
     """Wraps a tag in <i>"""
+
     def __init__(self, wrapped):
         self._wrapped = wrapped
 
     def render(self):
         return "<i>{}</i>".format(self._wrapped.render())
+
 
 if __name__ == '__main__':
     simple_hello = TextTag("hello, world!")
